@@ -1,0 +1,13 @@
+/**
+ * 通过伪元素::after清除自身浮动
+ */
+@mixin clearfix {
+    zoom: 1;
+    &::after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        clear: both;
+        overflow: hidden;
+    }
+}

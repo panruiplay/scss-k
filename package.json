@@ -1,0 +1,17 @@
+{
+  "name": "scss-k",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "keywords": [],
+  "author": "Rio",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.10.0"
+  }
+}

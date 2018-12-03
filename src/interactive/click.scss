@@ -1,0 +1,34 @@
+/**
+ * 点击交互 - 深色背景
+ * @param {Color} $bg-color 背景颜色，默认值：#ecebef
+ * @param {String|Boolean} $transition 过度设置，默认值：false
+ */
+@mixin click-depthColor($bg-color: #ECEBEF, $transition: false) {
+    @if ($transition == true) {
+        transition: background-color .15s;
+    } @else if ($transition) {
+        transition: $transition;
+    }
+    
+    &:active {
+        background-color: $bg-color;
+    }
+    @content
+}
+
+/**
+ * 点击交互 - 透明
+ * @param {number} $bg-$opacity 透明度，默认值：.7
+  * @param {String|Boolean} $transition 过度设置，默认值：false
+*/
+@mixin click-opacity($opacity: .7, $transition: false) {
+    @if ($transition == true) {
+        transition: opacity .15s;
+    } @else if ($transition) {
+        transition: $transition;
+    }
+    &:active {
+        opacity: $opacity;
+    }
+    @content
+}

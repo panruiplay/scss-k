@@ -1,0 +1,62 @@
+@charset "UTF-8";
+/**
+ * 所有响应式布局
+ */
+/**
+ * 定义响应式方案
+ * @param {String} $type 取值自$mediaTypes
+ */
+/**
+ * 通过伪元素::after清除自身浮动
+ */
+/**
+ * 清除行内级元素间间隙方案
+ * @param {String} $font-size 子元素字体大小，默认值：.14rem
+ * @param {String} $child-class-name 子元素样式名称，默认值：item
+ */
+/**
+ * 1像素边框方案
+ * @param {String} $border-width 指定边框厚度，取值与`border-width`属性一致，不同方向代表边框位置，默认值：1px，
+ * @param {String} $border-style 指定边框样式，默认值：solid
+ * @param {Color} $border-Color 指定边框颜色，默认值：#E7E7E7
+ * @param {String} $radius 指定边框圆角半径，默认值：null
+ */
+/**
+ * 设置文本是否换行
+ * @param {boolean} $is-wrap 是否换行，默认值，true
+ */
+/**
+ * 多行文本省略
+ * @param {Length} $width 定义容器的宽度，默认值：null
+ * @param {Integer} $line-clamp 定义需要显示的行数，默认值：1（即使用单行溢出的处理方案）
+
+ * 注意！autoprefixer 会帮你删除老式过时的代码，所以会把 -webkit-box-orient 这个属性值删除，
+ *      你可以增加remove: false这个配置项，就不会开启自动移除功能
+ *      postcss([ autoprefixer({ remove: false }) ])
+ */
+/**
+ * 点击交互 - 深色背景
+ * @param {Color} $bg-color 背景颜色，默认值：#ecebef
+ * @param {String|Boolean} $transition 过度设置，默认值：false
+ */
+/**
+ * 点击交互 - 透明
+ * @param {number} $bg-$opacity 透明度，默认值：.7
+  * @param {String|Boolean} $transition 过度设置，默认值：false
+*/
+html, body {
+  background: #f7f7f7;
+}
+
+ul {
+  user-select: none;
+  background: #fff;
+}
+
+ul:active {
+  background-color: #ECEBEF;
+}
+
+ul:active {
+  opacity: 0.7;
+}

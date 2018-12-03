@@ -1,0 +1,12 @@
+/**
+ * 清除行内级元素间间隙方案
+ * @param {String} $font-size 子元素字体大小，默认值：.14rem
+ * @param {String} $child-class-name 子元素样式名称，默认值：item
+ */
+@mixin clearspace($child-font-size: $scssK-base-font-size, $child-class-name: item) {
+    font-size: 0;
+    > .#{$child-class-name} {
+        display: inline-block;
+        font-size: $child-font-size;
+    }
+}

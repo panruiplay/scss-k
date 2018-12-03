@@ -1,0 +1,11 @@
+@import "../src/index";
+html, body {
+    background: #f7f7f7;
+}
+ul {
+    user-select: none;
+    background: #fff;
+    @include click-depthColor(){
+        @include click-opacity;
+    }
+}

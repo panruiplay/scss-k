@@ -1,0 +1,51 @@
+/**
+ * 所有响应式布局
+ */
+$mediaTypes: (
+    // 横屏
+    landscape: "(orientation: landscape)",
+    // 竖屏
+    portrait: "(orientation: portrait)",
+    // 视网膜屏1x
+    dpr1: "(max--moz-device-pixel-ratio: 1.49),
+           (-webkit-max-device-pixel-ratio: 1.49),
+           (max-device-pixel-ratio: 1.49),
+           (max-resolution: 143dpi),
+           (max-resolution: 1.49dppx)",
+    // 视网膜屏2x
+    dpr2: "(min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49),
+           (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49),
+           (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49),
+           (min-resolution: 144dpi) and (max-resolution: 239dpi),
+           (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx)",
+    // 视网膜屏3x
+    dpr3: "(min--moz-device-pixel-ratio: 2.5),
+           (-webkit-min-device-pixel-ratio: 2.5),
+           (min-device-pixel-ratio: 2.5),
+           (min-resolution: 240dpi),
+           (min-resolution: 2.5dppx)",
+    // 用于常规手机横竖屏
+    xs: "(max-width: 767px)",
+    // 用于常规pad横竖屏
+    s: "(min-width: 768px) and (max-width: 1024px)",
+    // 用于常规笔记本
+    m: "(min-width: 1025px) and (max-width: 1280px)",
+    // 用于常规台式机
+    l: "(min-width: 1281px) and (max-width: 1440px)",
+    // 用于超大台式机
+    xl: "(min-width: 1441px)"
+);
+
+/**
+ * 定义响应式方案
+ * @param {String} $type 取值自$mediaTypes
+ */
+@mixin responsive($type) {
+    @if not map-has-key($mediaTypes, $type) {
+        @warn "不支持的响应式方案 #{$type} ";
+        $media: portrait;
+    }
+    @media #{map-get($mediaTypes, $type)} {
+        @content;
+    }
+}

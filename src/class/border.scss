@@ -1,0 +1,55 @@
+/**
+ * 1像素边框方案
+ * @param {String} $border-width 指定边框厚度，取值与`border-width`属性一致，不同方向代表边框位置，默认值：1px，
+ * @param {String} $border-style 指定边框样式，默认值：solid
+ * @param {Color} $border-Color 指定边框颜色，默认值：#E7E7E7
+ * @param {String} $radius 指定边框圆角半径，默认值：null
+ */
+@mixin border($border-width: 1px, $border-style: solid, $border-Color: $scssK-border-color,  $radius: null) {
+    // px变为大写，防止px2em之类的软件将px转换成其r他单位
+    $border-width: unquote(to-upper-case(quote($border-width)));
+
+    // 为边框位置提供定位参考
+    position: relative;
+    @if $border-width == null {
+        $border-width: 0;
+    }
+    border-radius: $radius;
+    &::after {
+        // 用以解决边框layer遮盖内容
+        pointer-events: none;
+        position: absolute;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        content: "\0020";
+        border-color: $border-Color;
+        border-style: $border-style;
+        border-width: $border-width;
+        // 适配dpr进行缩放
+        @include responsive(dpr1) {
+            width: 100%;
+            height: 100%;
+            @if $radius != null {
+                border-radius: $radius;
+            }
+        }
+        @include responsive(dpr2) {
+            width: 200%;
+            height: 200%;
+            transform: scale(.5);
+            @if $radius != null {
+                border-radius: $radius * 2;
+            }
+        }
+        @include responsive(dpr3) {
+            width: 300%;
+            height: 300%;
+            transform: scale(.333333);
+            @if $radius != null {
+                border-radius: $radius * 3;
+            }
+        }
+        transform-origin: 0 0;
+    }
+}

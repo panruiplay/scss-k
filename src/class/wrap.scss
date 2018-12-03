@@ -1,0 +1,36 @@
+/**
+ * 设置文本是否换行
+ * @param {boolean} $is-wrap 是否换行，默认值，true
+ */
+@mixin wrap($is-wrap: true) {
+    @if $is-wrap == true {
+        word-wrap: break-word;
+        word-break: break-all;
+    } @else {
+        white-space: nowrap;
+    }
+}
+
+/**
+ * 多行文本省略
+ * @param {Length} $width 定义容器的宽度，默认值：null
+ * @param {Integer} $line-clamp 定义需要显示的行数，默认值：1（即使用单行溢出的处理方案）
+
+ * 注意！autoprefixer 会帮你删除老式过时的代码，所以会把 -webkit-box-orient 这个属性值删除，
+ *      你可以增加remove: false这个配置项，就不会开启自动移除功能
+ *      postcss([ autoprefixer({ remove: false }) ])
+ */
+@mixin ellipsis($width: null, $line-clamp: 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: $width;
+    @if abs($line-clamp) > 1 {
+        // 要使得多行截取生效，display的值只能为-webkit-box
+        display: -webkit-box !important;
+        -webkit-line-clamp: $line-clamp;
+        -webkit-box-orient: vertical;
+        @include wrap;
+    } @else {
+        @include wrap(false);
+    }
+}
