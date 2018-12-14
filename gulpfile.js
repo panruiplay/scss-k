@@ -1,8 +1,9 @@
 const gulp = require('gulp')
 const sass = require('gulp-sass')
 const connect = require('gulp-connect')
-const open = require('gulp-open')
+const open = require('open')
 
+// 编译scss
 gulp.task('sass', () => {
     return gulp
         .src('./dev/*.scss')
@@ -11,10 +12,12 @@ gulp.task('sass', () => {
         .pipe(connect.reload())
 })
 
+// 监听scss编译
 gulp.task('watch', () => {
-    gulp.watch(['./dev/**/*', './src/**/*'], {}, ['sass'])
+    gulp.watch(['./dev/**/*.scss', './src/**/*'], {}, gulp.series('sass'))
 })
 
+// 启动服务
 gulp.task('server', () => {
     connect.server({
         port: 8080,
@@ -23,12 +26,10 @@ gulp.task('server', () => {
     })
 })
 
-gulp.task('open', () => {
-    return gulp
-        .src('')
-        .pipe(open({
-            uri: 'http://localhost:8080',
-        }))
+// 打开浏览器
+gulp.task('open', (done) => {
+    open("http://localhost:8080/")
+    done()
 })
 
-gulp.task('default', ['open', 'server', 'watch'])
+gulp.task('default', gulp.series('sass', 'open', gulp.parallel(['server', 'watch'])))
