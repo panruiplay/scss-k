@@ -17,8 +17,8 @@
  * @param {Integer} $line-clamp 定义需要显示的行数，默认值：1（即使用单行溢出的处理方案）
 
  * 注意！autoprefixer 会帮你删除老式过时的代码，所以会把 -webkit-box-orient 这个属性值删除，
- *      你可以增加remove: false这个配置项，就不会开启自动移除功能
- *      postcss([ autoprefixer({ remove: false }) ])
+ *      你可以增加remove: false这个配置项，禁止自动移除功能
+ *      autoprefixer({ remove: false })
  */
 @mixin ellipsis($width: null, $line-clamp: 1) {
     overflow: hidden;
