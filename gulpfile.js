@@ -7,7 +7,7 @@ const open = require('open')
 gulp.task('sass', () => {
     return gulp
         .src('./dev/*.scss')
-        .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+        .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
         .pipe(gulp.dest('./dev'))
         .pipe(connect.reload())
 })
@@ -27,9 +27,6 @@ gulp.task('server', () => {
 })
 
 // 打开浏览器
-gulp.task('open', (done) => {
-    open("http://localhost:8080/")
-    done()
-})
+gulp.task('open', (done) => open("http://localhost:8080/") + done())
 
-gulp.task('default', gulp.series('sass', 'open', gulp.parallel(['server', 'watch'])))
+gulp.task('default', gulp.series('sass', 'open', gulp.parallel('server', 'watch')))

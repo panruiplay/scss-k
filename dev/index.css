@@ -37,12 +37,12 @@
 /**
  * 点击交互 - 深色背景
  * @param {Color} $bg-color 背景颜色，默认值：#ecebef
- * @param {String|Boolean} $transition 过度设置，默认值：false
+ * @param {String|Boolean} $transition 过度设置，【默认值：false | true：transition: background-color .15s;】
  */
 /**
  * 点击交互 - 透明
  * @param {number} $bg-$opacity 透明度，默认值：.7
-  * @param {String|Boolean} $transition 过度设置，默认值：false
+  * @param {String|Boolean} $transition 过度设置，【默认值：false | true：transition: opacity .15s;】
 */
 html, body {
   background: #f7f7f7;
