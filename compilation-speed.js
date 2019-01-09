@@ -56,4 +56,4 @@ chain()
     table.push(...all)
     console.log(table.toString())
 }
-|| chain['go']()
+|| chain.go()

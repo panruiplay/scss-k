@@ -25,7 +25,6 @@
     text-overflow: ellipsis;
     @if($width){ width: $width; }
     @if abs($line-clamp) > 1 {
-        // 要使得多行截取生效，display的值只能为-webkit-box
         display: -webkit-box !important;
         -webkit-line-clamp: $line-clamp;
         -webkit-box-orient: vertical;

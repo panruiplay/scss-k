@@ -19,7 +19,7 @@
     "gulp-connect": "^5.6.1",
     "gulp-sass": "^4.0.2",
     "node-sass": "^4.10.0",
-    "open": "0.0.5",
+    "open": "^0.0.5",
     "ora": "^3.0.0"
   },
   "dependencies": {}
