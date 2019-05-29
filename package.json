@@ -2,7 +2,7 @@
   "name": "scss-k",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.scss",
   "scripts": {
     "start": "gulp",
     "test:speed": "node ./compilation-speed"
